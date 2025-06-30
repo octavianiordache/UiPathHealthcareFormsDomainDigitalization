@@ -1,4 +1,4 @@
-# Automating Romanian Medical Discharge Forms Using RPA and HL7 FHIR
+# Robotic Process Automation for Structured Health Data in Romanian Clinics
 
 ### Project Overview
 
@@ -10,25 +10,25 @@ The system is modular and supports batch processing, validation via UiPath Valid
 
 ## Features
 
-- 🧾 **Document Understanding (OCR + Taxonomy)**  
+-  **Document Understanding (OCR + Taxonomy)**  
   Extracts structured data from scanned PDFs, including handwritten and printed content.
 
-- 🧠 **Optional Generative AI Integration**  
+-  **Optional Generative AI Integration**  
   Enhances data extraction through semantic understanding (only in alternative pipeline).
 
-- ✅ **Validation Station Support**  
+-  **Validation Station Support**  
   Human-in-the-loop mechanism for correcting low-confidence extractions.
 
-- 📤 **Export to HL7 FHIR**  
+-  **Export to HL7 FHIR**  
   Generates Patient, Condition, and Procedure resources and sends them to a FHIR server.
 
-- 🗂️ **FastAPI Endpoint Integration**  
+-  **FastAPI Endpoint Integration**  
   Simulates custom health information integration using RESTful APIs.
 
-- 📊 **Excel Logging**  
+-  **Excel Logging**  
   Each processed case is logged to an Excel file for auditing and statistical analysis.
 
-- 🔁 **Batch Processing Loop**  
+-  **Batch Processing Loop**  
   Supports processing of multiple documents in a single unattended run.
 
 ---
@@ -37,42 +37,28 @@ The system is modular and supports batch processing, validation via UiPath Valid
 
 | Component             | Specification                        |
 |----------------------|--------------------------------------|
-| Operating System      | Windows 11 Pro 64-bit                |
-| Processor             | Intel Core i7-11800H @ 2.30GHz       |
-| RAM                   | 16 GB DDR4                           |
-| Disk                  | 512 GB NVMe SSD                      |
+| Operating System      | Windows 10 64-bit                    |
 | UiPath Version        | Studio 2024.2 Community Edition      |
 | OCR Engine Used       | UiPath Document OCR (ML)             |
 | .NET Runtime          | .NET 6.0 (for ML Packages)           |
-
----
-
-## Folder Structure
-
-```
-project-folder/
-│
-├── UiPath_Workflows/           # Main .xaml files
-├── Taxonomy/                   # Custom DU taxonomy for field extraction
-├── FastAPI_Server/             # Python API for custom resource ingestion
-├── Sample_Documents/           # Example medical PDFs for testing
-├── Outputs/                    # Excel exports and FHIR response logs
-└── README.md
-```
+| Python                | minimum version 3.10                 |
 
 ---
 
 ## Running the Project
 
-1. Open the UiPath solution in UiPath Studio 2024.2+
-2. Configure the OCR engine and taxonomy path inside the DU pipeline
-3. Place your scanned PDFs in the `Sample_Documents` folder
-4. Run the main workflow (`Main.xaml`) to start the batch automation
-5. Review and validate data using Validation Station (if enabled)
-6. The extracted data will be:
+1. Open and start the API 
+2. Open the Document Understanding solution in UiPath Studio 2024.2+
+3. Open the Document Understanding workflow (`document_understanding.xaml`)
+5. Change the path to the director where your PDFs are saved
+6. Run the Document Understanding workflow (`document_understanding.xaml`) to start the batch automation
+7. Review and validate data using Validation Station
+8. Open the AI pipeline and run the main workflow to use AI extraction (optional)
+9. The extracted data will be:
    - Logged in Excel
-   - Sent to the HAPI FHIR server (if configured)
-   - Sent to the FastAPI server (optional)
+   - Sent to the HAPI FHIR server
+   - Sent to the FastAPI server
+     
 
 ---
 
@@ -81,9 +67,3 @@ project-folder/
 - The solution achieves **TRL 4**, having been tested with real documents in a lab setup.
 - Designed for adaptability, it can be expanded to process other types of forms or be integrated into national EHR systems.
 - For better performance, enterprise UiPath components like AI Center and Orchestrator can be integrated.
-
----
-
-## License
-
-This project is licensed under the MIT License. See `LICENSE` for more information.
