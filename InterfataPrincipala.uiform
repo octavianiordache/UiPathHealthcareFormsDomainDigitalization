@@ -1,0 +1,111 @@
+﻿{
+  "Metadata": {
+    "Id": "40215301-54d6-44a5-9e66-31fddf67d476",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "InterfataPrincipala",
+    "Theme": "Default",
+    "ShowInTaskbar": true,
+    "ShowMargin": true,
+    "CustomStyle": ""
+  },
+  "Data": {
+    "components": [
+      {
+        "tag": "h2",
+        "content": "Sistem integrat pentru spitale",
+        "key": "titleHeader",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "content": "Preia fișă de spitalizare și digitalizează",
+        "key": "label1",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Digitalizare fișă",
+        "action": "event",
+        "showValidations": false,
+        "tableView": false,
+        "key": "digitalizare",
+        "properties": {
+          "btnClicked": "startAutomation",
+          "closeOnSubmit": "False"
+        },
+        "type": "button",
+        "event": "event1",
+        "input": true
+      },
+      {
+        "content": "Caută pacient după CNP",
+        "key": "label",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Caută",
+        "action": "event",
+        "showValidations": false,
+        "tableView": false,
+        "key": "cauta",
+        "type": "button",
+        "input": true,
+        "event": "cautarePacient"
+      },
+      {
+        "content": "Introdu un pacient manual în sistem",
+        "key": "label2",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Introducere pacient",
+        "action": "event",
+        "showValidations": false,
+        "tableView": false,
+        "key": "introducerePacient",
+        "type": "button",
+        "input": true
+      },
+      {
+        "content": "Programează un pacient pentru consultații",
+        "key": "label3",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Programează",
+        "action": "event",
+        "showValidations": false,
+        "tableView": false,
+        "key": "programeaza",
+        "properties": {
+          "show": "False"
+        },
+        "type": "button",
+        "input": true
+      },
+      {
+        "type": "button",
+        "label": "Submit",
+        "key": "submit",
+        "disableOnInvalid": true,
+        "input": true,
+        "tableView": false
+      }
+    ]
+  }
+}

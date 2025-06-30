@@ -1,0 +1,1065 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="document_understanding" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="document_understanding_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/ocr" xmlns:p2="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p5="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p6="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p7="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:sd2="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.TaxonomyManagement</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>UiPath.OCR.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities</x:String>
+      <x:String>UiPath.DU.Shared.Utils</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DataExtraction</x:String>
+      <x:String>UiPath.SmartData.PositionBasedExtraction.Storage</x:String>
+      <x:String>UiPath.DU.Shared.Actions</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.ValidationStation</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Models</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Helpers.TypeDetailsCustomization</x:String>
+      <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
+      <x:String>UiPath.Platform.Activities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Shared.Telemetry</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Core.Activities.OCR.Engines</x:String>
+      <x:String>UiPath.Vision.Core.OCR</x:String>
+      <x:String>System.Net.Http</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GoogleCloud.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Python.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>UiPath.SmartData.PositionBasedExtraction</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms.Primitives</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.IntegrationService.Activities.Runtime</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Net.Http.WinHttpHandler</AssemblyReference>
+      <AssemblyReference>Microsoft.Extensions.Http</AssemblyReference>
+      <AssemblyReference>System.Net.Http</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="document_understanding" sap:VirtualizedContainerService.HintSize="807.6,7776.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="diagnosticTotal" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\Tavi\Desktop\fisePDF" Name="sourceFolder" />
+      <Variable x:TypeArguments="x:String" Name="openaiApiKey" />
+      <Variable x:TypeArguments="p8:DocumentTaxonomy" Name="taxonomy" />
+      <Variable x:TypeArguments="x:String" Name="docText" />
+      <Variable x:TypeArguments="p4:Document" Name="dom" />
+      <Variable x:TypeArguments="p7:ClassificationResult[]" Name="classificationResult" />
+      <Variable x:TypeArguments="p7:ExtractionResult" Name="extractionResult" />
+      <Variable x:TypeArguments="p7:ExtractionResult" Name="extractionResultDataExtraction" />
+      <Variable x:TypeArguments="p7:ExtractionResult" Name="validatedResults" />
+      <Variable x:TypeArguments="x:String" Name="docPath" />
+      <Variable x:TypeArguments="x:String" Default="C:\Users\Tavi\Downloads\fisa spitalizare proba.pdf" Name="selectedFilePath" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="patientsTable" />
+      <Variable x:TypeArguments="x:String" Name="nume" />
+      <Variable x:TypeArguments="x:String" Name="prenume" />
+      <Variable x:TypeArguments="x:String" Name="CNP" />
+      <Variable x:TypeArguments="x:String" Name="diagnosticPrincipal" />
+      <Variable x:TypeArguments="x:String" Name="diagnosticSecundar" />
+      <Variable x:TypeArguments="x:String" Name="medic" />
+      <Variable x:TypeArguments="x:String" Name="dataDeschidereFisa" />
+      <Variable x:TypeArguments="x:String" Name="dataInchidereFisa" />
+      <Variable x:TypeArguments="sd2:DataTable" Name="tabelExistent" />
+      <Variable x:TypeArguments="x:Int32" Name="nrRanduriScrise" />
+      <Variable x:TypeArguments="x:String" Name="startingCell" />
+      <Variable x:TypeArguments="x:String" Name="patientJson" />
+      <Variable x:TypeArguments="x:String" Name="fhirResponse" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="ResponseHeaders" />
+      <Variable x:TypeArguments="x:Int32" Name="statusCode" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonObj" />
+      <Variable x:TypeArguments="x:String" Name="conditionJson" />
+      <Variable x:TypeArguments="x:String" Name="fhirResponseCondition" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonObjCondition" />
+      <Variable x:TypeArguments="x:String" Name="procedureJson" />
+      <Variable x:TypeArguments="x:String" Name="conditionSecondaryJson" />
+      <Variable x:TypeArguments="x:String" Name="fhirResponseConditionSecondary" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonObjConditionSecondary" />
+      <Variable x:TypeArguments="x:String" Name="explorariInvestigatii" />
+      <Variable x:TypeArguments="x:String" Name="tratamenteEfectuate" />
+      <Variable x:TypeArguments="x:String" Name="alteProceduri" />
+      <Variable x:TypeArguments="x:String" Name="fhirResponseProcedure" />
+      <Variable x:TypeArguments="njl:JObject" Name="jsonObjProcedure" />
+      <Variable x:TypeArguments="x:String" Name="zi" />
+      <Variable x:TypeArguments="x:String" Name="luna" />
+      <Variable x:TypeArguments="x:String" Name="an" />
+      <Variable x:TypeArguments="x:String" Name="dateParts" />
+      <Variable x:TypeArguments="x:String" Name="dataNasterii" />
+      <Variable x:TypeArguments="x:String" Name="sex" />
+      <Variable x:TypeArguments="x:String" Name="rawDataJson" />
+      <Variable x:TypeArguments="x:String" Name="chatgptResponse" />
+      <Variable x:TypeArguments="njl:JObject" Name="responseObj" />
+      <Variable x:TypeArguments="x:String" Name="corectatJson" />
+      <Variable x:TypeArguments="x:String" Name="corectatDict" />
+      <Variable x:TypeArguments="x:String" Name="campuri" />
+      <Variable x:TypeArguments="s:String[]" Name="pdfFiles" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="513.6,435.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="449.6,324.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="416,264.8" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Introdu calea către fișa de spitalizare pe care vrei să o digitalizezi" Title="Selectare fișă">
+            <ui:InputDialog.Result>
+              <OutArgument x:TypeArguments="x:String">[docPath]</OutArgument>
+            </ui:InputDialog.Result>
+          </ui:InputDialog>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <Assign sap:VirtualizedContainerService.HintSize="513.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="s:String[]">[pdfFiles]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(sourceFolder, "*.pdf")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each docPath" sap:VirtualizedContainerService.HintSize="513.6,7204.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[pdfFiles]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="docpath" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,7083.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="fastAPIResponse" />
+              <Variable x:TypeArguments="x:String" Name="responseText" />
+              <Variable x:TypeArguments="njl:JObject" Name="jsonObjFastAPI" />
+              <Variable x:TypeArguments="njl:JObject" Name="jsonObjFastAPICondition" />
+              <Variable x:TypeArguments="njl:JObject" Name="jsonObjFastAPIPRocedure" />
+              <Variable x:TypeArguments="x:String" Name="jsonConditionFastAPI" />
+              <Variable x:TypeArguments="x:String" Name="jsonProcedureFastAPI" />
+              <Variable x:TypeArguments="x:String" Name="idFastAPIPatient" />
+              <Variable x:TypeArguments="x:String" Name="fhirResponseProcedure2" />
+              <Variable x:TypeArguments="x:String" Name="fhirResponseProcedure3" />
+              <Variable x:TypeArguments="njl:JObject" Name="jsonObjProcedure2" />
+              <Variable x:TypeArguments="njl:JObject" Name="jsonObjProcedure3" />
+              <Variable x:TypeArguments="x:String" Name="proceduriTotal" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="478.4,117.6" sap2010:WorkflowViewState.IdRef="MessageBox_15" Text="[docpath]" />
+            <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="478.4,137.6" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxonomy]" />
+            <p:DigitizeDocument ApplyOcrMigrated="True" ApplyOcrOnPdf="Auto" DegreeOfParallelism="-1" DetectCheckboxes="True" DisplayName="Digitize Document" DocumentObjectModel="[dom]" DocumentPath="[docpath]" DocumentText="[docText]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="478.4,332" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+              <p:DigitizeDocument.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, x:String, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                  <ActivityFunc.Argument1>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument1>
+                  <ActivityFunc.Argument2>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="PredictionId" />
+                  </ActivityFunc.Argument2>
+                  <p1:UiPathDocumentOCR Endpoint="{x:Null}" Output="{x:Null}" Text="{x:Null}" UseLocalServer="{x:Null}" ApiKey="HBKSJo+cj+2V5oKyIHtOrv3irRP7OkLJJo2uarB01tWhHoQAOa67JOP6wXqQSaIjhLF4Uj/+2dmiwAbTEc+mtg==" ComputeSkewAngle="False" DisplayName="UiPath Document OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,24.8" sap2010:WorkflowViewState.IdRef="UiPathDocumentOCR_2" Image="[Image]" Language="auto" NoopExecution="False" PredictionId="[PredictionId]" Profile="None" Scale="1" Timeout="100000" />
+                </ActivityFunc>
+              </p:DigitizeDocument.OCREngine>
+            </p:DigitizeDocument>
+            <p2:ClassifyDocumentScope ClassificationResults="[classificationResult]" DisplayName="Classify Document Scope" DocumentObjectModel="[dom]" DocumentPath="[docpath]" DocumentText="[docText]" sap:VirtualizedContainerService.HintSize="478.4,473.6" sap2010:WorkflowViewState.IdRef="ClassifyDocumentScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI396216e2386e423ba5f9d4d8a0a8c918&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Fisemedicale.NoCategory.Fisadespitalizare&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UI396216e2386e423ba5f9d4d8a0a8c918&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{&quot;UI396216e2386e423ba5f9d4d8a0a8c918&quot;:[]}}">
+              <p2:ClassifyDocumentScope.Classifiers>
+                <p2:KeywordBasedClassifier HumanValidatedData="{x:Null}" LearningData="{x:Null}" DisplayName="Keyword Based Classifier" sap:VirtualizedContainerService.HintSize="281.6,115.2" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifier_1" LearningFilePath="keyword.json" PersistenceId="UI396216e2386e423ba5f9d4d8a0a8c918">
+                  <p2:KeywordBasedClassifier.ClassifierResult>
+                    <OutArgument x:TypeArguments="p3:ClassifierResult">
+                      <DelegateArgumentReference x:TypeArguments="p3:ClassifierResult">
+                        <DelegateOutArgument x:TypeArguments="p3:ClassifierResult" Name="ClassifierResult" />
+                      </DelegateArgumentReference>
+                    </OutArgument>
+                  </p2:KeywordBasedClassifier.ClassifierResult>
+                  <p2:KeywordBasedClassifier.DocumentObjectModel>
+                    <InArgument x:TypeArguments="p4:Document">
+                      <DelegateArgumentValue x:TypeArguments="p4:Document">
+                        <DelegateInArgument x:TypeArguments="p4:Document" Name="DocumentObjectModel" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p2:KeywordBasedClassifier.DocumentObjectModel>
+                  <p2:KeywordBasedClassifier.DocumentPath>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p2:KeywordBasedClassifier.DocumentPath>
+                  <p2:KeywordBasedClassifier.DocumentText>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p2:KeywordBasedClassifier.DocumentText>
+                  <p2:KeywordBasedClassifier.DocumentTypes>
+                    <InArgument x:TypeArguments="p3:ClassifierDocumentType[]">
+                      <DelegateArgumentValue x:TypeArguments="p3:ClassifierDocumentType[]">
+                        <DelegateInArgument x:TypeArguments="p3:ClassifierDocumentType[]" Name="DocumentTypes" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p2:KeywordBasedClassifier.DocumentTypes>
+                  <p2:KeywordBasedClassifier.PredictionId>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="PredictionId" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p2:KeywordBasedClassifier.PredictionId>
+                </p2:KeywordBasedClassifier>
+              </p2:ClassifyDocumentScope.Classifiers>
+            </p2:ClassifyDocumentScope>
+            <p5:DataExtractionScope AvailableAssetPaths="{x:Array Type=x:String}" DocumentTypeId="{x:Null}" RuntimeAssetPath="{x:Null}" RuntimeTenantUrl="{x:Null}" ApplyGenerativeValidation="False" ClassificationResult="[classificationResult(0)]" DisplayName="Data Extraction Scope" DocumentObjectModel="[dom]" DocumentPath="[docpath]" DocumentText="[docText]" ExtractionResult="[extractionResult]" FormatValuesIfPossible="True" GenerativeValidationConfidenceThreshold="99" sap:VirtualizedContainerService.HintSize="478.4,522.4" sap2010:WorkflowViewState.IdRef="DataExtractionScope_2" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI4bce9374c6614f1585b1133c84d7a2a3&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Fisemedicale.NoCategory.Fisadespitalizare&quot;:{&quot;FieldMappings&quot;:{&quot;Fisemedicale.NoCategory.Fisadespitalizare.numepacient&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.numepacient&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnostic&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnostic&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.cnp&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.cnp&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.spital&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.spital&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnosticesecundare&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnosticesecundare&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.alergii&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.alergii&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.explorariinvestigatii&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.explorariinvestigatii&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.tratamenteefectuate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.tratamenteefectuate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.epicriza&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.epicriza&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.prenumepacient&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.prenumepacient&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.medic&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.medic&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.alteproceduri&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.alteproceduri&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.datadeschiderefisa&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.datadeschiderefisa&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.datainchiderefisa&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.datainchiderefisa&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.carteidentitate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.carteidentitate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Fisemedicale.NoCategory.Fisadespitalizare.nrinregistrare&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.nrinregistrare&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI4bce9374c6614f1585b1133c84d7a2a3&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI4bce9374c6614f1585b1133c84d7a2a3&quot;:[]}}">
+              <p5:DataExtractionScope.Extractors>
+                <p5:FormExtractor SerializedSignatureFields="{x:Null}" ApiKey="HBKSJo+cj+2V5oKyIHtOrv3irRP7OkLJJo2uarB01tWhHoQAOa67JOP6wXqQSaIjhLF4Uj/+2dmiwAbTEc+mtg==" DisplayName="Form Extractor" Endpoint="https://du.uipath.com/svc/formextractor" sap:VirtualizedContainerService.HintSize="281.6,164" sap2010:WorkflowViewState.IdRef="FormExtractor_2" MinOverlapPercentage="65" PersistenceId="UI4bce9374c6614f1585b1133c84d7a2a3" SendDocumentsForAlgorithmImprovements="True" SerializedSettings="{}{}" SerializedTemplates="[{&quot;DocumentTypeId&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare&quot;,&quot;FormId&quot;:&quot;7fce290c&quot;,&quot;FormName&quot;:&quot;fisa_de_spitalizare_template&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,595.0,842.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;înregistrare&quot;,&quot;Box&quot;:[45.58,378.79,50.11,14.43]},{&quot;Text&quot;:&quot;Spitalul&quot;,&quot;Box&quot;:[85.72,40.8,34.25,14.43]},{&quot;Text&quot;:&quot;FIŞĂ&quot;,&quot;Box&quot;:[138.66,200.52,31.87,18.64]},{&quot;Text&quot;:&quot;SPITALIZARE&quot;,&quot;Box&quot;:[138.66,258.86,94.88,18.64]},{&quot;Text&quot;:&quot;NUMELE&quot;,&quot;Box&quot;:[175.06,39.72,49.99,15.77]},{&quot;Text&quot;:&quot;naşterii:&quot;,&quot;Box&quot;:[195.64,63.84,36.34,15.77]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.numepacient&quot;,&quot;Box&quot;:[164.1614,91.2765,133.5089,23.1597]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnostic&quot;,&quot;Box&quot;:[564.2588,37.9237,447.0401,34.4761]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.cnp&quot;,&quot;Box&quot;:[62.057,370.6181,187.3201,16.6634]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.spital&quot;,&quot;Box&quot;:[79.8696,74.1236,124.6886,20.6857]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.diagnosticesecundare&quot;,&quot;Box&quot;:[627.465,41.3713,447.0401,121.8155]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.alergii&quot;,&quot;Box&quot;:[211.4534,429.2274,133.8822,18.9619]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.prenumepacient&quot;,&quot;Box&quot;:[165.5238,298.3515,187.3211,21.1162]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.medic&quot;,&quot;Box&quot;:[85.6156,390.7291,173.5297,22.9841]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.datadeschiderefisa&quot;,&quot;Box&quot;:[253.3993,376.9387,182.7233,22.9841]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.datainchiderefisa&quot;,&quot;Box&quot;:[297.6437,379.2371,181.5741,24.7079]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.carteidentitate&quot;,&quot;Box&quot;:[399.3481,82.168,172.3805,18.9619]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.nrinregistrare&quot;,&quot;Box&quot;:[40.1889,457.7447,100.1317,18.3915]}],&quot;Tables&quot;:[]},{&quot;Page&quot;:1,&quot;Size&quot;:[0.0,0.0,595.0,842.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;ANALIZE&quot;,&quot;Box&quot;:[41.87,358.79,54.64,16.0]},{&quot;Text&quot;:&quot;Explorări&quot;,&quot;Box&quot;:[97.78,39.72,45.37,15.77]},{&quot;Text&quot;:&quot;proceduri&quot;,&quot;Box&quot;:[264.82,63.43,46.08,15.77]},{&quot;Text&quot;:&quot;Tratamante&quot;,&quot;Box&quot;:[429.12,39.72,54.56,13.14]},{&quot;Text&quot;:&quot;Epicriza:&quot;,&quot;Box&quot;:[594.16,39.72,43.41,15.77]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.explorariinvestigatii&quot;,&quot;Box&quot;:[122.3901,42.5205,340.7388,131.5838]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.tratamenteefectuate&quot;,&quot;Box&quot;:[453.9353,41.3713,342.4626,125.2632]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.epicriza&quot;,&quot;Box&quot;:[624.592,40.7967,340.7388,167.7837]},{&quot;Field&quot;:&quot;Fisemedicale.NoCategory.Fisadespitalizare.alteproceduri&quot;,&quot;Box&quot;:[292.4722,40.7967,341.888,128.7108]}],&quot;Tables&quot;:[]}],&quot;AnchorBasedConfiguration&quot;:{&quot;AnchorBasedFieldConfiguration&quot;:[]}}]" Timeout="100000">
+                  <p5:FormExtractor.DocumentBounds>
+                    <InArgument x:TypeArguments="p7:ResultsDocumentBounds">
+                      <DelegateArgumentValue x:TypeArguments="p7:ResultsDocumentBounds">
+                        <DelegateInArgument x:TypeArguments="p7:ResultsDocumentBounds" Name="DocumentBounds" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.DocumentBounds>
+                  <p5:FormExtractor.DocumentObjectModel>
+                    <InArgument x:TypeArguments="p4:Document">
+                      <DelegateArgumentValue x:TypeArguments="p4:Document">
+                        <DelegateInArgument x:TypeArguments="p4:Document" Name="DocumentObjectModel" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.DocumentObjectModel>
+                  <p5:FormExtractor.DocumentPath>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.DocumentPath>
+                  <p5:FormExtractor.DocumentText>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.DocumentText>
+                  <p5:FormExtractor.ExtractorDocumentType>
+                    <InArgument x:TypeArguments="p6:ExtractorDocumentType">
+                      <DelegateArgumentValue x:TypeArguments="p6:ExtractorDocumentType">
+                        <DelegateInArgument x:TypeArguments="p6:ExtractorDocumentType" Name="ExtractorDocumentType" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.ExtractorDocumentType>
+                  <p5:FormExtractor.ExtractorResult>
+                    <OutArgument x:TypeArguments="p6:ExtractorResult">
+                      <DelegateArgumentReference x:TypeArguments="p6:ExtractorResult">
+                        <DelegateOutArgument x:TypeArguments="p6:ExtractorResult" Name="ExtractorResult" />
+                      </DelegateArgumentReference>
+                    </OutArgument>
+                  </p5:FormExtractor.ExtractorResult>
+                  <p5:FormExtractor.PredictionId>
+                    <InArgument x:TypeArguments="x:String">
+                      <DelegateArgumentValue x:TypeArguments="x:String">
+                        <DelegateInArgument x:TypeArguments="x:String" Name="PredictionId" />
+                      </DelegateArgumentValue>
+                    </InArgument>
+                  </p5:FormExtractor.PredictionId>
+                </p5:FormExtractor>
+              </p5:DataExtractionScope.Extractors>
+            </p5:DataExtractionScope>
+            <p:PresentValidationStation FieldsValidationConfidence="{x:Null}" AutomaticExtractionResults="[extractionResult]" DisplayMode="Classic" DisplayName="Present Validation Station" DocumentObjectModel="[dom]" DocumentPath="[docpath]" DocumentText="[docText]" EnableRTLControls="False" sap:VirtualizedContainerService.HintSize="478.4,404" sap2010:WorkflowViewState.IdRef="PresentValidationStation_2" ShowOnlyRelevantPageRange="False" Taxonomy="[taxonomy]" ValidatedExtractionResults="[validatedResults]" />
+            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="C:\Users\Tavi\Desktop\textextras.txt" sap:VirtualizedContainerService.HintSize="478.4,166.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[docText]" />
+            <ui:BuildDataTable DataTable="[patientsTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="478.4,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Nume&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Prenume&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;CNP&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Diagnostic_x0020_Principal&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Diagnostice_x0020_Secundare&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Medic&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Data_x0020_Deschidere_x0020_Fisa&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Data_x0020_Inchidere_x0020_Fisa&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,524" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[nume]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "nume pacient").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[prenume]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "prenume pacient").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[CNP]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "cnp").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[diagnosticPrincipal]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "diagnostic principal").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[diagnosticSecundar]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "diagnostice secundare").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[medic]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "medic").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[dataDeschidereFisa]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "data deschidere fisa").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[dataInchidereFisa]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "data inchidere fisa").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[explorariInvestigatii]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "explorari / investigatii").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[tratamenteEfectuate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "tratamente efectuate").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[alteProceduri]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[validatedResults.ResultsDocument.Fields.FirstOrDefault(Function(f) f.FieldName = "alte proceduri").Values.FirstOrDefault().Value]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[dataNasterii]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[(If(CNP.StartsWith("5") OrElse CNP.StartsWith("6"), "20", "19")) &amp; CNP.Substring(1,2) &amp; "-" &amp; CNP.Substring(3,2) &amp; "-" &amp; CNP.Substring(5,2)]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[sex]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[If({"1","3","5","7"}.Contains(CNP.Substring(0,1)), "male", "female")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[dataDeschidereFisa]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Join("-", System.Text.RegularExpressions.Regex.Matches(dataDeschidereFisa, "\d{2,4}").Cast(Of System.Text.RegularExpressions.Match).Select(Function(m) m.Value).Reverse().ToArray())]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[dataInchidereFisa]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Join("-", System.Text.RegularExpressions.Regex.Matches(dataInchidereFisa, "\d{2,4}").Cast(Of System.Text.RegularExpressions.Match).Select(Function(m) m.Value).Reverse().ToArray())]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object() { nume, prenume, CNP, diagnosticPrincipal, diagnosticSecundar, medic, dataDeschidereFisa, dataInchidereFisa }]" DataTable="[patientsTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.4,220" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[tabelExistent]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="478.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="pacienti" WorkbookPath="C:\Users\Tavi\Desktop\fisePacienti.xls" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[nrRanduriScrise]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">[tabelExistent.Rows.Count+2]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[startingCell]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">["A" + nrRanduriScrise.ToString()]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:WriteRange WorkbookPathResource="{x:Null}" AddHeaders="False" DataTable="[patientsTable]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="pacienti" StartingCell="[startingCell]" WorkbookPath="C:\Users\Tavi\Desktop\fisePacienti.xls" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[patientJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Patient"",
+  ""identifier"": [
+    {
+      ""system"": ""urn:oid:1.2.3.4.5.6.7.8.9"",
+      ""value"": """ &amp; cnp &amp; """
+    }
+  ],
+  ""name"": [
+    {
+      ""family"": """ &amp; nume &amp; """,
+      ""given"": [""" &amp; prenume &amp; """]
+    }
+  ],
+  ""gender"": """ &amp; sex &amp; """,
+  ""birthDate"": """ &amp; dataNasterii &amp; """
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[patientJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Patient" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" Result="[fhirResponse]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[fhirResponse]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[conditionJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Condition"",
+  ""clinicalStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-clinical"",
+        ""code"": ""active"",
+        ""display"": ""Active""
+      }
+    ]
+  },
+  ""verificationStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-ver-status"",
+        ""code"": ""confirmed"",
+        ""display"": ""Confirmed""
+      }
+    ]
+  },
+  ""category"": [
+    {
+      ""coding"": [
+        {
+          ""system"": ""http://terminology.hl7.org/CodeSystem/condition-category"",
+          ""code"": ""encounter-diagnosis"",
+          ""display"": ""Principal""
+        }
+      ]
+    }
+  ],
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""R69"",
+        ""display"": """ &amp; diagnosticPrincipal &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObj("id").ToString &amp; """
+  },
+  ""onsetDateTime"": """ &amp; dataDeschidereFisa &amp; """
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[conditionJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Condition" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_2" Method="POST" Result="[fhirResponseCondition]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jsonObjCondition]" JsonString="[fhirResponseCondition]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[conditionSecondaryJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Condition"",
+  ""clinicalStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-clinical"",
+        ""code"": ""active"",
+        ""display"": ""Active""
+      }
+    ]
+  },
+  ""verificationStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-ver-status"",
+        ""code"": ""confirmed"",
+        ""display"": ""Confirmed""
+      }
+    ]
+  },
+  ""category"": [
+    {
+      ""coding"": [
+        {
+          ""system"": ""http://terminology.hl7.org/CodeSystem/condition-category"",
+          ""code"": ""encounter-diagnosis"",
+          ""display"": ""Secondary""
+        }
+      ]
+    }
+  ],
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""R69"",
+        ""display"": """ &amp; diagnosticSecundar &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObj("id").ToString &amp; """
+  },
+  ""onsetDateTime"": """ &amp; dataDeschidereFisa &amp; """
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[conditionSecondaryJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Condition" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_3" Method="POST" Result="[fhirResponseConditionSecondary]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[jsonObjConditionSecondary]" JsonString="[fhirResponseConditionSecondary]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[procedureJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Procedure"",
+  ""status"": ""completed"",
+  ""category"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""103693007"",
+        ""display"": ""Explorations and investigations""
+      }
+    ]
+  },
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""73761001"",
+        ""display"": """ &amp; explorariInvestigatii &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObj("id").ToString &amp; """
+  }
+  
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[procedureJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Procedure" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_4" Method="POST" Result="[fhirResponseProcedure]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[jsonObjProcedure]" JsonString="[fhirResponseProcedure]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[procedureJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Procedure"",
+  ""status"": ""completed"",
+  ""category"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""103693007"",
+        ""display"": ""Treatments performed""
+      }
+    ]
+  },
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""73761001"",
+        ""display"": """ &amp; tratamenteEfectuate &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObj("id").ToString &amp; """
+  }
+  
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[procedureJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Procedure" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_5" Method="POST" Result="[fhirResponseProcedure2]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_5" JsonObject="[jsonObjProcedure2]" JsonString="[fhirResponseProcedure2]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[procedureJson]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Procedure"",
+  ""status"": ""completed"",
+  ""category"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""103693007"",
+        ""display"": ""Other procedures""
+      }
+    ]
+  },
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""73761001"",
+        ""display"": """ &amp; alteProceduri &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObj("id").ToString &amp; """
+  }
+  
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[procedureJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://hapi.fhir.org/baseR4/Procedure" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_6" Method="POST" Result="[fhirResponseProcedure3]" StatusCode="[statusCode]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/fhir+json</InArgument>
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_6" JsonObject="[jsonObjProcedure3]" JsonString="[fhirResponseProcedure3]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="478.4,117.6" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;ID-uri FHIR &quot;+vbCrLf +&quot;ID patient: &quot; + jsonObj(&quot;id&quot;).ToString+ vbCrLf +&quot;ID condition principal: &quot; + jsonObjCondition(&quot;id&quot;).ToString + vbCrLf +  &quot;ID condition secondary: &quot; + jsonObjConditionSecondary(&quot;id&quot;).ToString + vbCrLf+  &quot;ID procedure Explorari Investigatii: &quot; + jsonObjProcedure(&quot;id&quot;).ToString + vbCrLf + &quot;ID procedure Tratamente efectuate: &quot; + jsonObjProcedure2(&quot;id&quot;).ToString + vbCrLf + &quot;ID procedure Alte proceduri: &quot; + jsonObjProcedure3(&quot;id&quot;).ToString]" />
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[patientJson]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="http://127.0.0.1:8000/Patient" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_14" Method="POST" Result="[fastAPIResponse]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_13" JsonObject="[jsonObjFastAPI]" JsonString="[fastAPIResponse]" />
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[diagnosticTotal]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[diagnosticPrincipal + "; " + diagnosticSecundar]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[proceduriTotal]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[tratamenteEfectuate + "; " +explorariInvestigatii + "; " + alteProceduri]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_11">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[jsonConditionFastAPI]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Condition"",
+  ""clinicalStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-clinical"",
+        ""code"": ""active"",
+        ""display"": ""Active""
+      }
+    ]
+  },
+  ""verificationStatus"": {
+    ""coding"": [
+      {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/condition-ver-status"",
+        ""code"": ""confirmed"",
+        ""display"": ""Confirmed""
+      }
+    ]
+  },
+  ""category"": [
+    {
+      ""coding"": [
+        {
+          ""system"": ""http://terminology.hl7.org/CodeSystem/condition-category"",
+          ""code"": ""encounter-diagnosis"",
+          ""display"": ""All diagnosis""
+        }
+      ]
+    }
+  ],
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""R69"",
+        ""display"":""" &amp; diagnosticTotal &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObjFastAPI("id").ToString &amp; """
+  },
+  ""onsetDateTime"": """ &amp; dataDeschidereFisa &amp; """
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[jsonConditionFastAPI]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="http://127.0.0.1:8000/Condition" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_15" Method="POST" Result="[fastAPIResponse]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_14" JsonObject="[jsonObjFastAPICondition]" JsonString="[fastAPIResponse]" />
+            <Assign sap:VirtualizedContainerService.HintSize="478.4,115.2" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[jsonProcedureFastAPI]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String" xml:space="preserve">["{
+  ""resourceType"": ""Procedure"",
+  ""status"": ""completed"",
+  ""category"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""103693007"",
+        ""display"": ""Proceduri""
+      }
+    ]
+  },
+  ""code"": {
+    ""coding"": [
+      {
+        ""system"": ""http://snomed.info/sct"",
+        ""code"": ""73761001"",
+        ""display"": """ &amp; proceduriTotal &amp; """
+      }
+    ]
+  },
+  ""subject"": {
+    ""reference"": ""Patient/" &amp; jsonObjFastAPI("id").ToString  &amp; """
+  }
+  
+}"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" Body="[jsonProcedureFastAPI]" BodyFormat="application/json" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="http://127.0.0.1:8000/Procedure" sap:VirtualizedContainerService.HintSize="478.4,103.2" sap2010:WorkflowViewState.IdRef="HttpClient_16" Method="POST" Result="[fastAPIResponse]" TimeoutMS="6000">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,122.4" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_15" JsonObject="[jsonObjFastAPIPRocedure]" JsonString="[fastAPIResponse]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="478.4,108.8" sap2010:WorkflowViewState.IdRef="MessageBox_16" Text="[&quot;ID fast API Patient: &quot; + jsonObjFastAPI(&quot;id&quot;).ToString + vbCrLf + &quot;ID fast API Condition: &quot; + jsonObjFastAPICondition(&quot;id&quot;).ToString +  vbCrLf + &quot;ID fast API Procedure: &quot; + jsonObjFastAPIProcedure(&quot;id&quot;).ToString]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+    </ui:ForEach>
+  </Sequence>
+</Activity>
